@@ -1,29 +1,23 @@
+
 <form action="/book" method="post">
 
     <h2 class="title is-2">Book a table</h2>
 
     <div class="notification is-danger is-light">
-        {{!-- you can remove the button below if you want --}}
-        <button class="delete"></button>
-        Error Flash messages goes here...
-        <a href="https://bulma.io/documentation/elements/notification/">Read here if you wanna change the style</a>
+       {{!-- messaages --}}
+        <p class="msg">{{messages.fail}}</p>
     </div>
     <div class="notification is-success is-light">
-        {{!-- you can remove the button below if you want --}}
-        <button class="delete"></button>
-        Success Flash messages goes here...
-        <a href="https://bulma.io/documentation/elements/notification/">Read here if you wanna change the style</a>
+        <p class="msgs">{{messages.success}}</p>
     </div>
-
-
     <div class="columns">
-
         {{#each tables}}
 
         <div class="column">
             <div class="panel">
                 <p class="panel-heading">
-                    Table XYZ
+                    {{!-- add table tame --}}
+                    {{table_name}}
                 </p>
                 <div class="panel-block">
                     <div class="field is-horizontal">
@@ -42,7 +36,8 @@
                         <div class="field-body">
                             <div class="field">
                                 <p class="control">
-                                    <input class="input is-static" type="email" value="5" readonly>
+                                    {{!-- addeded capacity from db --}}
+                                    <input class="input is-static" type="email" value="{{capacity}}" readonly>
                                 </p>
                             </div>
                         </div>
@@ -101,4 +96,6 @@
         <input class="button is-primary" type="submit" value="Book">
     </div>
 </form>
+//see bookings here
+<p><a href="/bookins"> click here to see bookings</a></p>
 </div>
